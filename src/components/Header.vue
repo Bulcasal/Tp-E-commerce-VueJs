@@ -3,8 +3,15 @@
     <nav>
       <router-link to="/">Accueil</router-link>
       <router-link to="/catalogue">Catalogue</router-link>
-      <router-link to="/panier">Mon panier</router-link>
+      <div class="cart-display">
+        <router-link to="/panier">Mon panier<div v-if="!cartStore.isEmpty" class="cart-count absolute">{{
+          cartStore.count }}</div></router-link>
+      </div>
       <div class="connectButtons">
+        <span class="cursor-pointer" @click="active = true">
+          <fa icon="shopping-cart" size="lg" class="text-gray-700" />
+
+        </span>
         <router-link to="/connexion"><i class="fa-solid fa-circle-user"></i>Se connecter</router-link>
         <router-link to="/register"><i class="fa-regular fa-circle-user"></i>S'inscrire</router-link>
       </div>
@@ -13,9 +20,16 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue';
+import { useCartStore } from '../stores/cartStore';
+
+export default defineComponent({
   name: 'Header',
-};
+  setup() {
+    const cartStore = useCartStore();
+    return { cartStore };
+  }
+});
 </script>
 
 <style scoped>
@@ -24,17 +38,24 @@ header {
   color: white;
   padding: 1rem;
   width: 150vh;
-  height: 10vh;
-  box-sizing: border-box;
+  height: 500px;
+  /* box-sizing: border-box; */
 }
+
 header i {
   color: #ff5c5c;
   margin-left: 20px;
   margin-right: 5px;
 }
+
+.cart-display {
+  display: flex;
+}
+
 #connectOption {
   padding: 20px;
 }
+
 nav {
   display: flex;
   justify-content: space-around;

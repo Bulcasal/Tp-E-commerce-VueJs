@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "En point relais",
+        "price": 1
+    },
+    {
+        "id": 2,
+        "name": "A domicile",
+        "price": 2
+    }
+]

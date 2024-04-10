@@ -1,5 +1,4 @@
 <script setup>
-import Home from './components/Home.vue';
 import Header from './components/Header.vue';
 
 </script>
@@ -15,7 +14,7 @@ import Header from './components/Header.vue';
 
 
 <style scoped>
-#app {
+/* #app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,5 +24,5 @@ import Header from './components/Header.vue';
 main {
   width: 100%;
   flex: 1;
-}
+} */
 </style>

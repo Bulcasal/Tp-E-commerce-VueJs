@@ -1,82 +1,66 @@
 <template>
-  <div class="mainContainer">
-    <h2>Mon panier:</h2>
-    <ul>
-      <li v-for="item in cartItems" :key="item.id">
-        <img :src="item.image" alt="Product Image" />
-        <div class="liText">
-          <p>{{ item.name }}</p>
-          <p>Prix unitaire: {{ item.unit_price }}</p>
-          <p>Quantité:
-            <input type="number" v-model="item.quantity" @input="updateItemTotal(item)" min="0" />
-          </p>
-          <p>Prix: {{ item.total }} €
-            <i class="fa-solid fa-xmark" @click="deleteFromCart(item)" id="deleteButton"></i>
-          </p>
+  <div class="relative">
+    <h1>Mon panier</h1>
+    <div v-if="!cartStore.isEmpty">
+      <router-link to="/catalogue" class="routerCatalogue">Continuer mes achats</router-link>
+      <ul class="items-in-cart">
+        <CartItem v-for="(items, name) in cartStore.grouped" :key="name" :product="items[0]"
+          :count="cartStore.groupCount(name)" @updateCount="cartStore.setItemCount(items[0], $event)"
+          @clear="cartStore.clearItem(name)" />
+
+        <div>
+          <Shipment />
         </div>
-      </li>
-    </ul>
+        <div id="total">
+          Total: <strong> {{ cartStore.total }} €</strong>
+          dont frais de livraison : <strong>{{ cartStore.shippingCost }} €</strong>
+        </div>
+
+
+        <div class="flex-buttons">
+          <AppButton class="interactCart" @click="cartStore.$reset()">Effacer le panier</AppButton>
+          <AppButton class="interactCart" @click="cartStore.checkout">Valider</AppButton>
+        </div>
+      </ul>
+
+    </div>
+
+
+    <div v-else><em>Le panier est vide</em></div>
   </div>
-  <Shipment />
-  <div id="total">Total: {{ total }} €</div>
-  <button id="validateCart">Valider le panier</button>
+
+
 </template>
 
-<script>
-import { ref, computed } from 'vue';
-import Shipment from './Shipment.vue';
+<script setup>
+import CartItem from "./CartItem.vue";
+import Shipment from "./Shipment.vue";
+import { useCartStore } from "@/stores/cartStore";
 
-export const cartItems = ref([]);
 
-export const addToCart = (product) => {
-  const existingItem = cartItems.value.find(item => item.id === product.id);
 
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cartItems.value.push({
-      id: product.id,
-      image: product.image,
-      name: product.name,
-      unit_price: product.unit_price,
-      quantity: 1,
-      total: product.unit_price
-    });
-  }
-};
+defineProps({
+  product: { type: Object, required: true },
+  count: { type: Number, required: true },
+});
 
-export const deleteFromCart = (item, updateTotal) => {
-  const index = cartItems.value.findIndex(cartItem => cartItem.id === item.id);
-  if (index !== -1) {
-    cartItems.value.splice(index, 1);
-  }
-};
+defineEmits(["updateCount", "clear"]);
 
-export default {
-  components: {
-    Shipment
-  },
-  setup() {
-    const shipments = ref([]);
-    const total = computed(() => {
-      return cartItems.value.reduce((acc, item) => acc + (item.unit_price * item.quantity), 0);
-    });
 
-    const updateItemTotal = (item) => {
-      item.total = item.unit_price * item.quantity;
-    };
+const cartStore = useCartStore();
 
-    const updateTotal = () => {
-      let newTotal = 0;
-      for (const item of cartItems.value) {
-        newTotal += item.unit_price * item.quantity;
-      }
-      total.value = newTotal;
-    };
+// Calcul des frais de livraison
+// const shippingCost = computed(() => {
+//   return shipmentStore.selectedShipment ? shipmentStore.selectedShipment.price : 0;
+// });
 
-    return { cartItems, total, updateItemTotal, deleteFromCart, updateTotal };
-  }
-};
+// Mise à jour du total du panier
+// function updateTotal() {
+//   cartStore.updateTotal();
+// }
+const updateTotalWithShipping = () => {
+  cartStore.updateTotalWithShipping();
+}
 </script>
 
 <style>
@@ -129,16 +113,19 @@ li img {
   border-radius: 20px;
   width: 50px;
 }
+
 .cartItem {
   font-size: large;
 }
+
 #total {
+  margin: 30px 0px 0px 250px;
   font-size: x-large;
   font-weight: bold;
   color: #ff4076;
 }
 
-#validateCart {
+.interactCart {
   background-color: white;
   margin: 15px;
   padding: 10px;
@@ -149,8 +136,21 @@ li img {
   transition: color .20s ease-in-out, background-color .20s ease-in-out, border-color .20s ease-in-out, box-shadow .20s ease-in-out;
 }
 
-#validateCart:hover {
+.interactCart:hover {
   background-color: #ff4076;
   color: white;
+}
+
+.flex-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  font-family: fantasy;
+  color: #10053e;
+  margin: 20px;
 }
 </style>
