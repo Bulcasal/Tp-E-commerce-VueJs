@@ -26,6 +26,21 @@ defineEmits(["updateCount", "clear"]);
 
 .listCartItems {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.listCartItems img  {
+    max-width: 150px !important;
+    height: 50%;
+    margin-right: 50px;
+}
+
+.fa-trash {
+    color: #db3765;
+}
+
+span {
+    font-family: 'PT Sans';
+    margin: 50px 50px 0 0 ;
 }
 </style>

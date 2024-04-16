@@ -23,10 +23,10 @@ export const useCartStore = defineStore("cartStore", {
       this.clearItem(item.name);
       this.addItems(count, item);
     },
-    // updateTotal() {
-    //   let total = this.items.reduce((acc, item) => acc + item.unit_price, 0);
-    //   this.total = total;
-    // },
+    updateTotal() {
+      let total = this.items.reduce((acc, item) => acc + item.unit_price, 0);
+      this.total = total;
+    },
     //test
     updateTotalWithShipping() {
       let total = this.items.reduce((acc, item) => acc + item.unit_price, 0) + shippingCost;

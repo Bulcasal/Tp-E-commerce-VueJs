@@ -8,8 +8,6 @@ import Register from "./components/Register.vue";
 import Product from "./components/Product.vue";
 
 
-
-
 const routes = [ 
   {
     path: "/",

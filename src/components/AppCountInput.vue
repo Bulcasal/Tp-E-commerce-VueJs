@@ -15,9 +15,9 @@ const updateValue = (value) => {
 
 <template>
   <span>
-    <button class="decrement-button" @click="updateValue(modelValue > 0 ? modelValue - 1 : null)"> - </button>
+    <button class="decrement-button" @click="updateValue(modelValue > 0 ? modelValue - 1 : null)"> <i class="fa-solid fa-minus"></i> </button>
     <input :value="modelValue" type="number" min="0" @input="updateValue($event.target.value)" />
-    <button class="increment-button" @click="updateValue(modelValue + 1)"> + </button>
+    <button class="increment-button" @click="updateValue(modelValue + 1)"> <i class="fa-solid fa-plus"></i> </button>
   </span>
 </template>
 
@@ -37,7 +37,7 @@ button {
 
 .decrement-button,
 .increment-button {
-  padding: 6px 10px;
+  padding: 1px 5px;
   border-radius: 50%;
   background-color: #073665;
   color: white;
@@ -52,7 +52,7 @@ button {
 }
 
 span {
-  margin: 0px 50px 0px 40px;
+  margin: 50px 50px 50px 40px;
 }
 
 .align-row-items{

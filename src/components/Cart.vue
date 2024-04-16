@@ -2,7 +2,7 @@
   <div class="relative">
     <h1>Mon panier</h1>
     <div v-if="!cartStore.isEmpty">
-      <router-link to="/catalogue" class="routerCatalogue">Continuer mes achats</router-link>
+      <router-link to="/catalogue" class="routerCatalogue"><i class="fa-solid fa-hand-point-left"></i>  <em>Continuer mes achats</em></router-link>
       <ul class="items-in-cart">
         <CartItem v-for="(items, name) in cartStore.grouped" :key="name" :product="items[0]"
           :count="cartStore.groupCount(name)" @updateCount="cartStore.setItemCount(items[0], $event)"
@@ -13,31 +13,24 @@
         </div>
         <div id="total">
           Total: <strong> {{ cartStore.total }} €</strong>
-          dont frais de livraison : <strong>{{ cartStore.shippingCost }} €</strong>
+          <em> dont frais de livraison : {{ cartStore.shippingCost }} €</em>
         </div>
-
-
         <div class="flex-buttons">
-          <AppButton class="interactCart" @click="cartStore.$reset()">Effacer le panier</AppButton>
+          <AppButton class="interactCart" @click="cartStore.$reset()">Vider le panier</AppButton>
           <AppButton class="interactCart" @click="cartStore.checkout">Valider</AppButton>
         </div>
       </ul>
-
     </div>
-
-
-    <div v-else><em>Le panier est vide</em></div>
+    <div v-else><em>
+        <p>Le panier est vide <i class="fa-solid fa-face-sad-cry"></i></p>
+      </em></div>
   </div>
-
-
 </template>
 
 <script setup>
 import CartItem from "./CartItem.vue";
 import Shipment from "./Shipment.vue";
 import { useCartStore } from "@/stores/cartStore";
-
-
 
 defineProps({
   product: { type: Object, required: true },
@@ -49,30 +42,32 @@ defineEmits(["updateCount", "clear"]);
 
 const cartStore = useCartStore();
 
-// Calcul des frais de livraison
-// const shippingCost = computed(() => {
-//   return shipmentStore.selectedShipment ? shipmentStore.selectedShipment.price : 0;
-// });
-
-// Mise à jour du total du panier
-// function updateTotal() {
-//   cartStore.updateTotal();
-// }
 const updateTotalWithShipping = () => {
   cartStore.updateTotalWithShipping();
 }
 </script>
 
 <style>
+h1 {
+  margin: 50px 0 50px 0;
+}
+
+.routerCatalogue {
+  margin: 30px 0 50px 300px;
+  color: #ff4076;
+}
+
 .headerList {
   display: flex;
   flex-direction: row;
 }
 
+
 .mainContainer {
   max-width: 800px;
   margin: 20px auto;
 }
+
 
 ul {
   display: flex;
@@ -119,10 +114,8 @@ li img {
 }
 
 #total {
-  margin: 30px 0px 0px 250px;
-  font-size: x-large;
-  font-weight: bold;
-  color: #ff4076;
+  margin: 30px 0px 0px 400px;
+  /* color: #ff4076; */
 }
 
 .interactCart {
@@ -152,5 +145,14 @@ a {
   font-family: fantasy;
   color: #10053e;
   margin: 20px;
+}
+
+p {
+  text-align: center;
+}
+
+p i {
+  color: #ff4076;
+
 }
 </style>

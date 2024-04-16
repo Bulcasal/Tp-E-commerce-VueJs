@@ -3,21 +3,23 @@
     <div class="product-details">
       <h2>{{ product.name }}</h2>
       <img :src="product.image" alt="Product Image" width="300" />
-      <p>
-        <span class="label">Description:</span>
-        {{ product.description }}
-      </p>
-      <p><span class="label">Prix:</span> {{ product.unit_price }} €</p>
+      <!--<p>
+        <span class="label">Description:{{ product.description }}</span>
+      </p>-->
+      <span class="label"><p>Prix: {{ product.unit_price }} €</p></span> 
     </div>
-    <div class="text-center m-4">
+    <div class="countInput">
       <AppCountInput v-model="count"></AppCountInput>
     </div>
     <div class="buttons">
-      {# <button class="showProductButton">Voir le produit</button> #}
-      <AppModalOverlay :active="isModalVisible" @close="isModalVisible = false" @show="isModalVisible = true" .showProductButton>Voir le produit</AppModalOverlay>
-      <AppButton class="primary addProductCart" @click="$emit('addToCart', count, product), (count = 0)">Ajouter au panier</AppButton>
+      <button class="showProductButton" @click="showModal(product)">Voir le produit</button>
+
+      <AppButton class="primary addProductCart" @click="$emit('addToCart', count, product), (count = 0)">Ajouter au
+        panier</AppButton>
     </div>
   </div>
+
+  <AppModalOverlay :active="active" :selectedProduct="selectedProduct" @close="active = false"></AppModalOverlay>
 </template>
 
 <script setup>
@@ -32,12 +34,19 @@ const props = defineProps({
 defineEmits(["addToCart"]);
 
 const count = ref(0);
+const active = ref(false);
+const selectedProduct = ref(null);
 
-const isModalVisible = ref(false);
-
+const showModal = (product) => {
+  active.value = true;
+  selectedProduct.value = product;
+};
 </script>
 
 <style scoped>
+.countInput {
+  margin: 50px 0 30px 0;
+}
 h2 {
   font-size: 1.3rem;
 }
@@ -66,8 +75,7 @@ h2 {
 
 .product img {
   max-width: 100%;
-  max-height: 50%;
-  height: 80%;
+  max-height: 100%;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -86,13 +94,13 @@ h2 {
   padding: 10px;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid #5bba38;
-  color: #5bba38;
+  border: 1px solid hsla(160, 100%, 37%, 1);
+  color: hsla(160, 100%, 37%, 1);
   transition: background-color 0.4s ease, color 0.3s ease;
 }
 
 .addProductCart:hover {
-  background-color: #5bba38;
+  background-color: hsla(160, 100%, 37%, 1);
   color: white;
 }
 
@@ -111,5 +119,9 @@ h2 {
 .showProductButton:hover {
   background-color: #10053e;
   color: white;
+}
+
+.product-details {
+  margin-bottom: -70px;
 }
 </style>

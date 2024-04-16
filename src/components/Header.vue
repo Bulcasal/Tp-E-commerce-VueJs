@@ -4,16 +4,20 @@
       <router-link to="/">Accueil</router-link>
       <router-link to="/catalogue">Catalogue</router-link>
       <div class="cart-display">
-        <router-link to="/panier">Mon panier<div v-if="!cartStore.isEmpty" class="cart-count absolute">{{
-          cartStore.count }}</div></router-link>
+        <router-link to="/panier">
+          <span class="cart-icon">Mon panier</span>
+          <div v-if="!cartStore.isEmpty" class="cart-count">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="counter">{{ cartStore.count }}</span>
+          </div>
+        </router-link>
       </div>
       <div class="connectButtons">
-        <span class="cursor-pointer" @click="active = true">
-          <fa icon="shopping-cart" size="lg" class="text-gray-700" />
 
-        </span>
-        <router-link to="/connexion"><i class="fa-solid fa-circle-user"></i>Se connecter</router-link>
-        <router-link to="/register"><i class="fa-regular fa-circle-user"></i>S'inscrire</router-link>
+        <div class="user-connect">
+          <router-link to="/connexion"><i class="fa-solid fa-circle-user"></i>Se connecter</router-link>
+          <router-link to="/register"><i class="fa-regular fa-circle-user"></i>S'inscrire</router-link>
+        </div>
       </div>
     </nav>
   </header>
@@ -39,7 +43,6 @@ header {
   padding: 1rem;
   width: 150vh;
   height: 500px;
-  /* box-sizing: border-box; */
 }
 
 header i {
@@ -52,6 +55,13 @@ header i {
   display: flex;
 }
 
+.fa-cart-shopping {
+  margin-top: 10px;
+}
+
+#counter {
+  margin-bottom: 10px;
+}
 #connectOption {
   padding: 20px;
 }
@@ -87,7 +97,25 @@ header a {
 @media screen and (min-width: 480px) {
   header {
     width: 100%;
-    height: 10vh;
+    height: 80px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 5;
+  }
+
+  header {
+    display: flex;
+    max-width: fit-content;
+    max-height: 150px;
+  }
+
+  .user-connect {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
