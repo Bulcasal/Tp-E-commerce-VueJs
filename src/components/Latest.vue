@@ -40,6 +40,10 @@ onMounted(() => {
   font-family: 'Spinnaker';
 }
 
+.product h4 {
+  font-family: 'Pt Sans';
+}
+
 .product img {
   margin: 0px 5px 0px 5px;
   max-width: 100%;

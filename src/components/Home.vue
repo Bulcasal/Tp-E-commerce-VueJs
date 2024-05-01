@@ -61,5 +61,8 @@ p {
   .main-container p{
     text-align: justify;
   }
+  .galleryLink a {
+    font-size: 3rem;
+  }
 }
 </style>

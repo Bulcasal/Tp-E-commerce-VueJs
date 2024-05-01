@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { groupBy } from "lodash";
-import { useShipmentStore } from "./shipmentStore";
 
 export const useCartStore = defineStore("cartStore", {
   state: () => {
@@ -27,21 +26,17 @@ export const useCartStore = defineStore("cartStore", {
       let total = this.items.reduce((acc, item) => acc + item.unit_price, 0);
       this.total = total;
     },
-    //test
+    //-->Error
     updateTotalWithShipping() {
       let total = this.items.reduce((acc, item) => acc + item.unit_price, 0) + shippingCost;
       this.total = total;
     },
-
   },
 
   getters: {
     count: (state) => state.items.length,
 
     isEmpty: (state) => state.count === 0,
-    // isEmpty() {
-    //   return this.count === 0;
-    // },
     grouped: (state) => {
       const grouped = groupBy(state.items, (item) => item.name);
       const sorted = Object.keys(grouped).sort();
@@ -50,10 +45,7 @@ export const useCartStore = defineStore("cartStore", {
       return inOrder;
     },
     groupCount: (state) => (name) => state.grouped[name].length,
-
-    // total: (state) => state.items.reduce((p, c) => p + c.unit_price, 0),
     
-
     //test
     total(state) {
       const itemsTotal = state.items.reduce((acc, item) => acc + item.unit_price, 0);

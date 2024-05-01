@@ -3,17 +3,15 @@
     <div class="product-details">
       <h2>{{ product.name }}</h2>
       <img :src="product.image" alt="Product Image" width="300" />
-      <!--<p>
-        <span class="label">Description:{{ product.description }}</span>
-      </p>-->
-      <span class="label"><p>Prix: {{ product.unit_price }} €</p></span> 
+      <span class="label">
+        <p>Prix: {{ product.unit_price }} €</p>
+      </span>
     </div>
     <div class="countInput">
       <AppCountInput v-model="count"></AppCountInput>
     </div>
     <div class="buttons">
-      <button class="showProductButton" @click="showModal(product)">Voir le produit</button>
-
+      <button class="showProductButton" @click="showModal(product)">Description</button>
       <AppButton class="primary addProductCart" @click="$emit('addToCart', count, product), (count = 0)">Ajouter au
         panier</AppButton>
     </div>
@@ -47,6 +45,7 @@ const showModal = (product) => {
 .countInput {
   margin: 50px 0 30px 0;
 }
+
 h2 {
   font-size: 1.3rem;
 }
@@ -123,5 +122,21 @@ h2 {
 
 .product-details {
   margin-bottom: -70px;
+}
+
+@media screen and (max-width: 600px) {
+  .product p {
+    text-align: center;
+  }
+  .label p {
+    font-size: x-large;
+  }
+
+  .showProductButton {
+    font-size: 1.5rem;
+  }
+  .addProductCart {
+    font-size: 1.5rem;
+  }
 }
 </style>

@@ -2,18 +2,21 @@
   <div class="relative">
     <h1>Mon panier</h1>
     <div v-if="!cartStore.isEmpty">
-      <router-link to="/catalogue" class="routerCatalogue"><i class="fa-solid fa-hand-point-left"></i>  <em>Continuer mes achats</em></router-link>
+      <router-link to="/catalogue" class="routerCatalogue"><i class="fa-solid fa-arrow-left"></i><em> Continuer mes
+          achats</em></router-link>
       <ul class="items-in-cart">
         <CartItem v-for="(items, name) in cartStore.grouped" :key="name" :product="items[0]"
           :count="cartStore.groupCount(name)" @updateCount="cartStore.setItemCount(items[0], $event)"
           @clear="cartStore.clearItem(name)" />
 
-        <div>
-          <Shipment />
-        </div>
-        <div id="total">
-          Total: <strong> {{ cartStore.total }} €</strong>
-          <em> dont frais de livraison : {{ cartStore.shippingCost }} €</em>
+        <div class="total-container">
+          <div id="shipment-container">
+            <Shipment />
+          </div>
+          <div id="total">
+            <strong> Total: {{ cartStore.total }}€</strong>
+            <em> (dont frais de livraison : {{ cartStore.shippingCost }}€)</em>
+          </div>
         </div>
         <div class="flex-buttons">
           <AppButton class="interactCart" @click="cartStore.$reset()">Vider le panier</AppButton>
@@ -22,8 +25,12 @@
       </ul>
     </div>
     <div v-else><em>
-        <p>Le panier est vide <i class="fa-solid fa-face-sad-cry"></i></p>
-      </em></div>
+        <p>est vide <i class="fa-solid fa-face-sad-cry"></i></p>
+      </em>
+      <router-link to="/catalogue">
+        <p id="buy-now">Remplir mon panier !</p>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -39,7 +46,6 @@ defineProps({
 
 defineEmits(["updateCount", "clear"]);
 
-
 const cartStore = useCartStore();
 
 const updateTotalWithShipping = () => {
@@ -49,11 +55,12 @@ const updateTotalWithShipping = () => {
 
 <style>
 h1 {
-  margin: 50px 0 50px 0;
+  margin: 50px 0;
+  text-align: center;
 }
 
 .routerCatalogue {
-  margin: 30px 0 50px 300px;
+  margin: 30px 0 50px 30px;
   color: #ff4076;
 }
 
@@ -62,12 +69,18 @@ h1 {
   flex-direction: row;
 }
 
-
 .mainContainer {
   max-width: 800px;
   margin: 20px auto;
 }
 
+#shipment-container {
+  margin-right: 200px;
+}
+.total-container {
+  display: flex;
+  justify-content: center;
+}
 
 ul {
   display: flex;
@@ -79,6 +92,7 @@ li {
   list-style: none;
   display: flex;
   padding: 20px;
+  /* border-bottom: 1px solid #ccc; */
 }
 
 .liText {
@@ -98,8 +112,7 @@ li img {
 #deleteButton {
   color: #991111;
   cursor: pointer;
-  font-size: large;
-  width: 50px;
+  font-size: 1.2rem;
 }
 
 .liText input {
@@ -114,8 +127,17 @@ li img {
 }
 
 #total {
-  margin: 30px 0px 0px 400px;
-  /* color: #ff4076; */
+  font-family: 'Pt Sans';
+  text-align: center;
+  margin-top: 30px;
+  margin-right: 20px;
+  padding-top: 20px;
+  font-size: larger;
+}
+
+
+#total em {
+  font-size: small;
 }
 
 .interactCart {
@@ -127,6 +149,7 @@ li img {
   border: 1px solid #ff4076;
   color: #ff4076;
   transition: color .20s ease-in-out, background-color .20s ease-in-out, border-color .20s ease-in-out, box-shadow .20s ease-in-out;
+  cursor: pointer;
 }
 
 .interactCart:hover {
@@ -151,8 +174,42 @@ p {
   text-align: center;
 }
 
+#buy-now {
+  font-family: 'PT Sans';
+  font-size: 1.2rem;
+  color: #001f3f;
+  text-align: center;
+}
+
 p i {
   color: #ff4076;
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .routerCatalogue a {
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .total-container {
+  display: flex;
+  flex-direction: column;
+}
+
+  .flex-buttons {
+    display: inherit !important;
+  }
+
+  #total {
+    font-size: medium;
+  }
+
+  #total span {
+    font-size: x-large;
+    margin-right: 10px;
+  }
 
 }
 </style>
