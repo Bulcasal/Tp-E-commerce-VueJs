@@ -1,15 +1,3 @@
-<script setup>
-import { defineProps, defineEmits } from 'vue';
-
-const props = defineProps({
-  active: Boolean,
-  selectedProduct: Object,
-});
-
-defineEmits(["close"]);
-
-</script>
-
 <template>
   <div v-if="active" class="modal-overlay">
     <div class="modal-overlay-content">
@@ -30,6 +18,18 @@ defineEmits(["close"]);
     </div>
   </div>
 </template>
+
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  active: Boolean,
+  selectedProduct: Object,
+});
+
+defineEmits(["close"]);
+
+</script>
 
 <style scoped>
 .modal-overlay {
@@ -97,21 +97,22 @@ defineEmits(["close"]);
 .card-text p {
   margin-bottom: 10px;
 }
+
 @media screen and (max-width: 600px) {
   .modal-overlay {
-  width: 90%;
-}
+    width: 90%;
+  }
 
-.modal-content {
-  margin-top: 40px;
-}
+  .modal-content {
+    margin-top: 40px;
+  }
 
-.product-image {
-  width: 80%;
-}
+  .product-image {
+    width: 80%;
+  }
 
-.card-text {
-  font-size: large;
-}
+  .card-text {
+    font-size: large;
+  }
 }
 </style>

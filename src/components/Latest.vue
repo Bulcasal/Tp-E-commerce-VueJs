@@ -25,9 +25,10 @@ onMounted(() => {
 
 <style scoped>
 .main-container {
-  display:flex;
+  display: flex;
   justify-content: space-around;
 }
+
 .product {
   border: 1px solid #ddd;
   padding: 1rem;

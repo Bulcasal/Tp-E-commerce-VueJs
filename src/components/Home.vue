@@ -58,9 +58,10 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
-  .main-container p{
+  .main-container p {
     text-align: justify;
   }
+
   .galleryLink a {
     font-size: 3rem;
   }

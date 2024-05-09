@@ -2,7 +2,8 @@
   <div class="gallery">
     <h1>Tous nos produits</h1>
     <div class="grid">
-      <ProductCard v-for="product in productStore.products" :key="product.name" :product="product" @addToCart="cartStore.addItems($event, product)" />
+      <ProductCard v-for="product in productStore.products" :key="product.name" :product="product"
+        @addToCart="cartStore.addItems($event, product)" />
     </div>
   </div>
 </template>
@@ -19,12 +20,14 @@ productStore.fill();
 </script>
 
 <style scoped>
-h1{
+h1 {
   margin-bottom: 70px;
 }
+
 .gallery {
   padding: 20px;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

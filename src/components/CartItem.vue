@@ -46,6 +46,7 @@ defineEmits(["updateCount", "clear"]);
 #count-input-container {
     margin-top: 43px;
 }
+
 span {
     font-family: 'PT Sans';
     margin: 50px 50px 0 0;
@@ -59,6 +60,7 @@ span {
     span {
         text-align: center;
     }
+
     #count-product {
         text-align: center;
         font-size: larger;
@@ -67,6 +69,7 @@ span {
     #product-name {
         font-size: larger;
     }
+
     .list-cart-items img {
         max-width: 200px !important;
     }

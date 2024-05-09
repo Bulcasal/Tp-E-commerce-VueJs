@@ -2,15 +2,15 @@
   <div class="mainContainer">
     <h4>Je choisis le mode de livraison :</h4>
     <div class="shipment-content">
-    <input type="radio" id="livraisonDomicile" name="livraison" value="2" v-model="selectedShippingCost"
-      @change="updateShippingCost">
-    <label for="livraisonDomicile">Livraison à domicile (2 €)</label><br>
-  </div>
-  <div class="shipment-content">
-    <input type="radio" id="livraisonPointRelais" name="livraison" value="1" v-model="selectedShippingCost"
-      @change="updateShippingCost">
-    <label for="livraisonPointRelais">Livraison en point relais (1 €)</label><br>
-  </div>
+      <input type="radio" id="livraisonDomicile" name="livraison" value="2" v-model="selectedShippingCost"
+        @change="updateShippingCost">
+      <label for="livraisonDomicile">Livraison à domicile (2 €)</label><br>
+    </div>
+    <div class="shipment-content">
+      <input type="radio" id="livraisonPointRelais" name="livraison" value="1" v-model="selectedShippingCost"
+        @change="updateShippingCost">
+      <label for="livraisonPointRelais">Livraison en point relais (1 €)</label><br>
+    </div>
   </div>
 </template>
 
@@ -32,7 +32,6 @@ const updateShippingCost = () => {
   font-family: 'Pt Sans';
 }
 
-
 @media screen and (max-width: 600px) {
   .mainContainer {
     display: flex;
@@ -40,6 +39,4 @@ const updateShippingCost = () => {
   }
 
 }
-
-
 </style>

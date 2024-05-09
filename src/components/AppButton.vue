@@ -1,7 +1,5 @@
 <template>
-    <button>
-      <slot></slot>
-    </button>
-  </template>
-
-  
+  <button>
+    <slot></slot>
+  </button>
+</template>

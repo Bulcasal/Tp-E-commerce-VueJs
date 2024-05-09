@@ -1,11 +1,11 @@
 <template>
   <header>
     <nav>
-      <div id="burger-container" :class="{ 'active': active }">
+      <div class="burger-container" :class="{ 'active': active }">
         <button class="burger-button" @click="toggleActive">
-          <span class="fa-solid fa-burger" @click="showMenu = !showMenu"></span>
+          <span class="fa-solid fa-burger" @click="toggleActive"></span>
         </button>
-        <div v-show="showMenu" id="burgerMenu">
+        <div class="burgerMenu">
           <router-link to="/">Accueil</router-link>
           <router-link to="/catalogue">Catalogue</router-link>
           <router-link to="/panier">
@@ -18,31 +18,8 @@
             </div>
           </router-link>
           <div class="user-connect">
-              <router-link to="/connexion"><i class="fa-solid fa-circle-user"></i>Se connecter</router-link>
-              <router-link to="/register"><i class="fa-regular fa-circle-user"></i>S'inscrire</router-link>
-            </div>
-        </div>
-      </div>
-      <div class="toggleInactive">
-        <div class="main-link-container">
-          <div class="link-container">
-          <router-link to="/">Accueil</router-link>
-          <router-link to="/catalogue">Catalogue</router-link>
-          <div class="cart-display">
-            <router-link to="/panier">
-              <span class="cart-icon">Mon panier</span>
-              <div v-if="!cartStore.isEmpty" class="cart-count">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="counter">{{ cartStore.count }}</span>
-              </div>
-            </router-link>
-          </div>
-        </div>
-          <div class="connectButtons">
-            <div class="user-connect">
-              <router-link to="/connexion"><i class="fa-solid fa-circle-user"></i>Se connecter</router-link>
-              <router-link to="/register"><i class="fa-regular fa-circle-user"></i>S'inscrire</router-link>
-            </div>
+            <router-link to="/connexion"><i class="fa-solid fa-circle-user"></i>Se connecter</router-link>
+            <router-link to="/register"><i class="fa-regular fa-circle-user"></i>S'inscrire</router-link>
           </div>
         </div>
       </div>
@@ -61,8 +38,15 @@ const toggleActive = () => {
   showMenu.value = !showMenu.value;
 };
 
+// const isActive = ref(false);
+
+//     const activateElement = () => {
+//       isActive.value = true;
+//     };
+
+
 export default defineComponent({
-  name: 'Header',
+  name: 'HeaderBis',
   setup() {
     const cartStore = useCartStore();
     return { cartStore, showMenu };
@@ -78,14 +62,22 @@ export default defineComponent({
 </script>
 
 <style scoped>
-header {
+
+.burgerMenu {
   display: flex;
-  flex-direction: column;
-  background: linear-gradient(to right, #001f3f, #073665);
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.burger-button {
+  display: none;
+}
+.burgerMenu a{
   color: white;
-  padding: 1rem;
-  width: auto;
-  height: 80px;
+}
+
+.fa-burger {
+  display: none;
 }
 
 .main-link-container {
@@ -100,6 +92,7 @@ header i {
   margin-right: 5px;
 }
 
+
 .cart-display {
   display: flex;
 }
@@ -107,7 +100,33 @@ header i {
 .fa-cart-shopping {
   margin-top: 10px;
 }
+/* Styles pour la barre de navigation */
+header {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #001f3f, #073665);
+  color: white;
+  padding: 1rem;
+  width: auto;
+  height: 80px;
+  justify-content: center;
+}
+header a {
+  color: antiquewhite;
+  text-decoration: none;
+  font-family: 'PT Sans';
+}
+/* Styles pour les liens */
+router-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background-color 0.3s;
+}
 
+router-link:hover {
+  background-color: #0069d9;
+}
 #counter {
   margin-bottom: 10px;
 }
@@ -118,16 +137,6 @@ header i {
 
 .link-container {
   display: flex;
-}
-router-link {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem;
-  transition: background-color 0.3s;
-}
-
-router-link:hover {
-  background-color: #0069d9;
 }
 
 header a {
@@ -141,57 +150,41 @@ header a {
   justify-content: space-evenly;
 }
 
-#burger-container {
-  display: none;
-}
-
-
+/* Breakpoint menu burger */
 @media screen and (max-width: 600px) {
-  body {
-    margin: 0;
-    padding: 0;
+  .activated header {
+      background-color: #ff5c5c;
   }
-
-  header {
-    display: flex;
-    width: auto;
+   header {
     height: 120px;
     background: #001f3f !important;
   }
 
-  .user-connect {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #burger-container {
+  .burger-container {
     display: block;
   }
 
   .fa-burger {
+    display: block;
     font-size: xxx-large;
     color: #ff5c5c;
   }
 
   .burger-button {
+    display: block;
     background-color: #001f3f;
     border: none;
   }
 
-  .toggleInactive {
-    display: none;
-  }
-
-  #burgerMenu {
+  .burgerMenu {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 10;
     left: 0;
     width: fit-content;
     height: auto;
     font-size: x-large;
-    padding: 5px;
+    padding: 30px;
     background: linear-gradient(to bottom, #001f3f, #073665);
   }
 
@@ -206,6 +199,17 @@ header a {
 
   .fa-circle-user {
     display: none;
+  }
+
+    .user-connect {
+    display: flex;
+    flex-direction: column;
+  }
+  .activated .burgerMenu{
+      display: none;
+  }
+  .user-connect a {
+    margin: 20px 0;
   }
 }
 </style>

@@ -1,3 +1,12 @@
+<template>
+  <span class="count-input">
+    <button class="decrement-button" @click="updateValue(modelValue > 0 ? modelValue - 1 : null)"> <i
+        class="fa-solid fa-minus"></i> </button>
+    <input :value="modelValue" type="number" min="0" @input="updateValue($event.target.value)" />
+    <button class="increment-button" @click="updateValue(modelValue + 1)"> <i class="fa-solid fa-plus"></i> </button>
+  </span>
+</template>
+
 <script setup>
 defineProps({
   modelValue: {
@@ -13,15 +22,6 @@ const updateValue = (value) => {
   }
 }
 </script>
-
-<template>
-  <span class="count-input">
-    <button class="decrement-button" @click="updateValue(modelValue > 0 ? modelValue - 1 : null)"> <i
-        class="fa-solid fa-minus"></i> </button>
-    <input :value="modelValue" type="number" min="0" @input="updateValue($event.target.value)" />
-    <button class="increment-button" @click="updateValue(modelValue + 1)"> <i class="fa-solid fa-plus"></i> </button>
-  </span>
-</template>
 
 <style scoped>
 input[type="number"] {

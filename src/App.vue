@@ -1,14 +1,13 @@
 <script setup>
-import Header from './components/Header.vue';
+import HeaderBis from './components/HeaderBis.vue';
 import { defineComponent, ref } from 'vue';
-
 
 </script>
 
 <template>
   <main>
     <div id="app">
-      <Header></Header>
+      <HeaderBis></HeaderBis>
       <router-view></router-view>
     </div>
   </main>

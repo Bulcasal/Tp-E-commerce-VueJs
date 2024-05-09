@@ -128,6 +128,7 @@ h2 {
   .product p {
     text-align: center;
   }
+
   .label p {
     font-size: x-large;
   }
@@ -135,6 +136,7 @@ h2 {
   .showProductButton {
     font-size: 1.5rem;
   }
+
   .addProductCart {
     font-size: 1.5rem;
   }

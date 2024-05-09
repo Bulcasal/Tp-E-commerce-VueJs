@@ -77,6 +77,7 @@ h1 {
 #shipment-container {
   margin-right: 200px;
 }
+
 .total-container {
   display: flex;
   justify-content: center;
@@ -194,9 +195,9 @@ p i {
   }
 
   .total-container {
-  display: flex;
-  flex-direction: column;
-}
+    display: flex;
+    flex-direction: column;
+  }
 
   .flex-buttons {
     display: inherit !important;
