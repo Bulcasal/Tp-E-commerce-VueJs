@@ -5,7 +5,7 @@
       <img :src="product.image" alt="Product Image" width="300" />
       <span class="label">
         <p>Prix: {{ product.unit_price }} €</p>
-      </span>
+      </span> 
     </div>
     <div class="countInput">
       <AppCountInput v-model="count"></AppCountInput>

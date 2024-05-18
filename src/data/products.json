@@ -4,7 +4,7 @@
         "name": "Éclat d'Énergie Améthyste",
         "unit_price": 10,
         "quantity": 2,
-        "image": "./pictures/deux.jpg",
+        "image": "./images/deux.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -12,7 +12,7 @@
         "name": "Bracelet Élégance Turquoise",
         "unit_price": 20,
         "quantity": 3,
-        "image": "./pictures/un.jpg",
+        "image": "./images/un.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -20,7 +20,7 @@
         "name": "Harmonie Quartz Rose",
         "unit_price": 30,
         "quantity": 4,
-        "image": "./pictures/trois.jpg",
+        "image": "./images/trois.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -28,7 +28,7 @@
         "name": "Bracelet Obsidienne Protectrice",
         "unit_price": 40,
         "quantity": 5,
-        "image": "./pictures/quatre.jpg",
+        "image": "./images/quatre.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -36,7 +36,7 @@
         "name": "Sérénité Aventurine",
         "unit_price": 50,
         "quantity": 1,
-        "image": "./pictures/cinq.jpg",
+        "image": "./images/cinq.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -44,7 +44,7 @@
         "name": "Énergie Équilibrée Hématite",
         "unit_price": 10,
         "quantity": 2,
-        "image": "./pictures/six.jpg",
+        "image": "./images/six.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -52,7 +52,7 @@
         "name": "Bracelet Jade de Pureté",
         "unit_price": 20,
         "quantity": 3,
-        "image": "./pictures/sept.jpg",
+        "image": "./images/sept.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -60,7 +60,7 @@
         "name": "Éclat Solaire Citrine",
         "unit_price": 30,
         "quantity": 4,
-        "image": "./pictures/huit.jpg",
+        "image": "./images/huit.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -68,7 +68,7 @@
         "name": "Bracelet Rhodonite Passion",
         "unit_price": 40,
         "quantity": 5,
-        "image": "./pictures/neuf.jpg",
+        "image": "./images/neuf.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -76,7 +76,7 @@
         "name": "Lumière Astrale Lapis Lazuli",
         "unit_price": 50,
         "quantity": 1,
-        "image": "./pictures/dix.jpg",
+        "image": "./images/dix.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -84,7 +84,7 @@
         "name": "Mystère Labradorite",
         "unit_price": 40,
         "quantity": 5,
-        "image": "./pictures/onze.jpg",
+        "image": "./images/onze.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     },
     {
@@ -92,7 +92,7 @@
         "name": "Sagesse Sodalite",
         "unit_price": 50,
         "quantity": 1,
-        "image": "./pictures/douze.jpg",
+        "image": "./images/douze.jpg",
         "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
     }
 ]
