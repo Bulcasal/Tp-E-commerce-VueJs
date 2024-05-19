@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <div v-for="product in latestProducts" :key="product.id" class="product">
       <img :src="product.image" alt="Product Image" />
       <h3>{{ product.name }}</h3>
@@ -24,6 +24,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.main-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .product {
   border: 1px solid #ddd;
   padding: 1rem;
@@ -34,6 +39,10 @@ onMounted(() => {
 .product h3 {
   color: #ff5c5c;
   font-family: 'Spinnaker';
+}
+
+.product h4 {
+  font-family: 'Pt Sans';
 }
 
 .product img {
@@ -48,5 +57,12 @@ onMounted(() => {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: color .20s ease-in-out, background-color .20s ease-in-out, border-color .20s ease-in-out, box-shadow .20s ease-in-out;
+}
+
+/**Responsive */
+@media only screen and (max-width: 600px) {
+  .main-container {
+    flex-direction: column;
+  }
 }
 </style>

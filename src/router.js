@@ -8,8 +8,6 @@ import Register from "./components/Register.vue";
 import Product from "./components/Product.vue";
 
 
-
-
 const routes = [ 
   {
     path: "/",
@@ -33,7 +31,7 @@ const routes = [
   },
   {
     path: "/register",
-    name: "register",
+    name: "inscription",
     component: Register,
   },
   {
@@ -43,7 +41,6 @@ const routes = [
   }
 
 ];
-
 
 const router = createRouter({
   history: createWebHistory(),

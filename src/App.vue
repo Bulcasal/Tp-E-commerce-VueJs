@@ -1,29 +1,14 @@
 <script setup>
-import Home from './components/Home.vue';
-import Header from './components/Header.vue';
+import HeaderBis from './components/HeaderBis.vue';
+import { defineComponent, ref } from 'vue';
 
 </script>
 
 <template>
   <main>
     <div id="app">
-      <Header></Header>
+      <HeaderBis></HeaderBis>
       <router-view></router-view>
     </div>
   </main>
 </template>
-
-
-<style scoped>
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
-main {
-  width: 100%;
-  flex: 1;
-}
-</style>

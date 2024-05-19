@@ -15,7 +15,9 @@
   </div>
 
   <div class="galleryLink">
-    <router-link to="/catalogue">Tous nos produits</router-link>
+    <router-link to="/catalogue">
+      <p>Tous nos produits</p>
+    </router-link>
   </div>
 </template>
 
@@ -47,19 +49,21 @@ p {
   text-align: justify;
 }
 
-.latestProducts {
-  display: flex;
-  justify-content: row;
-}
-
-.galleryLink {
-  margin: 20px;
-}
-
-.galleryLink a {
+.galleryLink p {
   font-family: 'Dancing Script';
   text-decoration: none;
   font-size: xx-large;
   color: #001f3f;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container p {
+    text-align: justify;
+  }
+
+  .galleryLink a {
+    font-size: 3rem;
+  }
 }
 </style>
